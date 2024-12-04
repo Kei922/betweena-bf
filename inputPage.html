@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="https://glitch.com/favicon.ico" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.3/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.3/addons/p5.sound.min.js"></script>
+    
+    <title>betweenabf.uk</title>
+
+    <!-- <link rel="stylesheet" herf="/style.css" /> -->
+
+    <script src="/p5Version.js"  defer></script>
+    <script src="/database_upload.js" type="module" defer></script>
+    <script src="/databaseCheck.js" type="module" defer></script>
+
+    <style>
+      /******************************************************************************
+      START Glitch hello-app default styles
+
+      The styles in this section do some minimal CSS resets, set default fonts and 
+      colors, and handle the layout for our footer and "Remix on Glitch" button. If
+      you're new to CSS they may seem a little complicated, but you can scroll down
+      to this section's matching END comment to see page-specific styles.
+      ******************************************************************************/
+
+      @font-face {
+          font-family: "JackeyFont";
+          src:url("fonts/JackeyFont.ttf") format("truetype");
+          font-display: swap;
+      }
+
+      @font-face {
+          font-family: "NewJohnstonMedium";
+          src:url("fonts/new-johnston-medium-4.ttf") format("truetype");
+          font-display: swap;
+      }
+
+      @font-face {
+          font-family: "Pixel";
+          src:url("fonts/FreePixel.ttf") format("truetype");
+          font-display: swap;
+      }
+
+      /* Our default values set as CSS variables */
+      :root {
+          --color-bg: #69F7BE;
+          --color-text-main: #000000;
+          --color-primary: #FFFF00;
+          --wrapper-height: 87vh;
+          --image-max-width: 300px;
+          --image-margin: 3rem;
+          --font-family: "JackeyFont";
+          --font-family-header: "JackeyFont";
+      }
+
+      /* Basic page style resets */
+      * {
+          box-sizing: border-box;
+      }
+      [hidden] {
+          display: none !important;
+      }
+
+      /******************************************************************************
+      END Glitch hello-app default styles
+      ******************************************************************************/
+
+      body {
+          font-family: "JackeyFont";
+      }
+
+      #mainBody{
+        margin-left: 0;
+        margin-right: 0;
+      }
+
+      /* Page structure */
+      .wrapper {
+          min-height: 87vh;
+          display: grid;
+          place-items: center;
+          margin: 0 1rem;
+      }
+        
+      .content {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+      }
+
+      /* Very light scaling for our illustration */
+      .title {
+          color: #2800FF;
+          font-family: HK Grotesk;
+          font-style: normal;
+          font-weight: bold;
+          font-size: 100px;
+          line-height: 105%;
+          margin: 0;
+      }
+
+      header {
+          background-color: white;
+          position: fixed;
+          width: 100%;
+          top: 0;
+      }
+
+
+  .subpage{
+    font-family:"JackeyFont";
+    text-align:center;
+  }
+
+  .menues{
+  margin: 5vw;
+}
+
+#headerBar{
+  height: 180px;
+}
+  
+
+      #yohaku {
+          padding: 40px;
+      }
+
+      /* Button - Add it from the README instructions */
+      button,
+      input {
+          font-family: inherit;
+          font-size: 100%;
+          background: transparent;
+          border: 0px solid #000000;
+          box-sizing: border-box;
+          border-radius: 4px;
+          padding: 0.5rem 1rem;
+          transition: 500ms;
+      }
+
+      #optionBox {
+          margin-top: 15px;
+          margin-bottom: 30px;
+      }
+      
+
+      /* Subheading */
+      h2 {
+          color: #2800FF;
+      }
+
+      /* Links that open files in the editor */
+      .fileopener {
+          cursor: pointer;
+          font-weight: bold;
+          border-bottom: 3px solid var(--color-primary);
+          color: var(--color-secondary);
+      }
+
+      .fileopener:hover {
+          border-bottom: 3px solid var(--color-secondary);
+      }
+
+      #empty_image {
+          width: 60vw;
+          margin-bottom: 60px;
+          margin-top: 20px;
+      }
+
+      .flex-col {
+          display: flex;
+          flex-direction: column;
+      }
+
+      .textBox {
+          display: flex;
+          flex-direction: column;
+          margin-top: 5%;
+      }
+
+      .textInput {
+          font-family: 'JackeyFont';
+      }
+
+      .flex-row {
+          display: flex;
+      }
+
+      .eachcol {
+          margin-top: -20px;
+      }
+
+      #buttonDiv {
+          display: flex;
+          align-items: flex-end;
+          margin-top: 0px;
+      }
+
+      .tagline {
+          font-family: "JackeyFont";
+          margin-top: -25px;
+          font-size: 17px;
+      }
+
+      .maintitle {
+          font-family: "JackeyFont";
+          font-size: 45px;
+      }
+
+      .explaination {
+          font-family: "JackeyFont";
+          font-size: 14px;
+          margin-left: 20px;
+          margin-right: 20px;
+          line-height: 17px;
+          margin-top: 30px;
+          margin-bottom: 30px;
+      }
+
+      #between {
+          font-family: "NewJohnstonMedium";
+          font-size: 45px;
+          letter-spacing: -2px;
+      }
+
+      #bf {
+          letter-spacing: -7px;
+      }
+
+      input[type=text] {
+          border-bottom: 1px black solid;
+      }
+
+      #voiceRecorderImg {
+          max-width: 10vw;
+          margin-top: -20px;
+      }
+
+      #playbutton {
+          text-align: center;
+      }
+
+      #mapPin {
+          max-width: 10vw;
+          margin-top: -20px;
+      }
+
+      #rerecord {
+          max-width: 12vw;
+      }
+
+      .homepageImg {
+          max-width: 100%;
+      }
+
+      #optionBox {
+          margin-bottom: 0;
+      }
+
+      button img {
+          max-width: 20vw;
+      }
+
+      #timeShow {
+          font-family: "JackeyFont";
+          color: white;
+      }
+
+      .submission-message {
+          font-family: "JackeyFont";
+          font-size: 7vw;
+          text-align: center;
+          padding-bottom: 80px;
+      }
+
+      #mainbar {
+          text-decoration: none;
+          color: inherit;
+      }
+
+      #mainbarbox {
+          position: fixed;
+          height: 180px;
+      }
+
+      .eachInfo {
+          color: black;
+          font-family: "JackeyFont";
+          height: 100%;
+          text-align: left;
+          font-size: 17px;
+      }
+
+      #eachName {
+          font-size: min(9vw, 50px);
+          margin-top: 3%;
+          margin-bottom: 3%;
+      }
+
+      #eachTitle {
+          margin-bottom: 5px;
+          font-size: 17px;
+      }
+
+      #welcome {
+          font-size: 17px;
+          line-height: 6vw;
+          font-family: "Pixel";
+      }
+
+      #eachTime {
+          margin-top: 0;
+          font-size: 17px;
+      }
+
+      #alt_image {
+          max-width: 60vw;
+          margin-bottom: 15px;
+          margin-top: 0px;
+      }
+
+      #audioOutput::-webkit-media-controls {
+          display: none !important;
+      }
+
+      #audioOutput {
+          appearance: none;
+          -moz-appearance: none;
+          -webkit-appearance: none;
+      }
+
+      audio {
+          width: 100px;
+          height: 54px;
+      }
+
+      .menues{
+        text-decoration: none;
+          color: inherit;
+      }
+
+      #tapPhoto{
+        position: absolute;
+      } 
+
+
+        .textInput {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        #optionBox {
+            margin: 0;
+        }
+
+        #categoryBox {
+            width: 200px;
+            padding: 10px;
+            border: 1px solid #000;
+            border-radius: 5px;
+            font-size: 14px;
+            background-color: white;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            text-align: center;
+        }
+
+        #categoryBox option {
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        /* Optional: Style for the select dropdown arrow */
+        #categoryBox::after {
+            content: "▼";
+            position: absolute;
+            top: 0;
+            right: 10px;
+            padding: 10px;
+            pointer-events: none;
+            transition: 0.3s;
+        }
+
+        #optionLabel{
+          font-family: "Pixel";
+        }
+      
+  </style>
+  </head>
+  <body id="mainBody">
+    <header id="mainbarbox">
+        <a id="mainbar" href="https://between-b2bbe.web.app/map.html">
+        <div class="flex-col">
+          <h1 style="text-align:center" class="maintitle">
+            <span id="between">Between </span> <span style="color:red">A</span><span>&</span><span id="bf" style="color:green">BF</span>
+          </h1>
+          <p class="tagline" style="text-align:center">
+            私たちの MEMORY STREET STICKER <span id="location" style="display: none;">London</span>
+          </p>
+          <br>
+        </div>
+        <div class="subpage" style="opacity: 40%;">
+   
+            <a class="menues" href="https://between-b2bbe.web.app/about.html">
+              ABOUT
+            </a>
+
+            <a class="menues" href="https://between-b2bbe.web.app/map.html">
+              MAP
+             </a>
+             
+            <a class="menues" href="https://between-b2bbe.web.app/aboutME.html">
+              |дﾟ)ﾁﾗｯ
+            </a>
+
+           
+          
+        </div>
+      </a>
+    </header>
+    <br> <br> <br>
+    <div class="wrapper">
+      <div class="content" role="main">
+        <!-- <header id="mainbarbox">
+            <a id="mainbar" href="https://between-b2bbe.web.app/homepage.html">
+            <div class="flex-col">
+              <h1 style="text-align:center" class="maintitle">
+                <span id="between">Between </span> <span style="color:red">A</span><span>&</span><span id="bf" style="color:green">BF</span>
+              </h1>
+              <p class="tagline" style="text-align:center">
+                私たちの MEMORY STREET STICKER 
+              </p>
+              <br>
+            </div>
+            <div class="subpage" >
+       
+                <a class="menues">
+                  ABOUT
+                </a>
+              
+                <a class="menues">
+                  MANIFEST
+                </a>
+              
+            </div>
+          </a>
+        </header> -->
+        <p id="yohaku">
+        </p>
+        <div id="inputPage" class="content" >
+            <!-- <h1>INPUT PAGE</h1> -->
+              <img id="empty_image" src="assets/Card_test_box-02.png" alt="a.png" style="cursor:pointer;">
+              <input type="file" id="fileInput" accept="image/*" style="display:none;">
+              
+              
+
+            <div class="flex-col">
+                <div class="eachcol">
+                    <label class="textInput" >名前:</label>
+                    <input class="textBox" type="text" id="voiceMemoName" placeholder="YOUR NAME IS..."><br><br><br><br>
+                </div>
+                <div class="eachcol">
+                    <label class="textInput" >場所:</label>
+                    <input class="textBox" type="text" id="voiceMemoCity" placeholder="WHERE ARE YOU?"><br><br><br><br>
+                </div>
+      
+                <div class="eachcol">
+                    <label class="textInput">気持ち:</label>
+                    <p id="optionBox">
+                      <select id="categoryBox" name="example1">
+                     
+                      <option value="1" style="text-align: center;">🔥</option>
+                      <option value="2" style="text-align: center;">💕</option>
+                      <option value="3" style="text-align: center;">💧</option>
+                      <option value="4" style="text-align: center;">👬</option>
+                      </select>
+                      </p>
+                </div><br><br><br><br>
+      
+                <div class="eachcol">
+                  <label class="textInput" >声のタイトル:</label>
+                  <input class="textBox" type="text" id="voiceMemoTitle" placeholder="VOICE TITLE"><br><br>
+                </div>
+            </div>
+              <div id="timeShow" >00:00</div><br>
+              <div id="buttonDiv">
+                <button  id="submitButton">
+                  <img id="voiceRecorderImg" class="optional" src="assets/mic_8bit.png" style="cursor:pointer;">
+                </button>
+                <button  id="rerecordButton" class="optional" style="display:none" >
+                  <img  id="rerecord" src="assets/reload_8bit.png" style="cursor:pointer;">
+                </button>
+              </div>
+        </div>
+        <div id="dataPage" class="content" style="display: none;">
+            <!-- <h1>DATA PAGE</h1> -->
+              <img id="alt_image" type="file" src="assets/Card_test2-02.png" alt="a.png">
+              <div class="flex-col">
+                <!-- <div id="overlay" class="overlay-event"> -->
+                  <!-- <div id="overlayContents"> -->
+                    <div class="eachInfo">
+                      <p id="eachName"></p>
+                      <label id="eachCity">CITY</label>
+                      <br><br><br>
+                      <p id="eachTitle"></p>
+                      <label id="eachTime">TIME</label><br><br><br>
+                      <p id="welcome">Welcome!!<br>You found someone's voice left<br>Where do u think <br> the person is now...?</p>
+                    </div><br><br>
+                   
+                  <!-- </div> -->
+                <!-- </div> -->
+              </div>
+            <!-- if document exists -->
+            <div class="mapButton" id="playbutton">
+                <button id="mapButton">
+                  <img id="mapPin" class="optional" src="assets/play_small.png" style="cursor:pointer;">
+                </button>
+              </div>
+              <audio id="audioOutput" controls style="display:none;"></audio> 
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

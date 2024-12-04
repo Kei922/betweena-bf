@@ -1,0 +1,155 @@
+@font-face {
+  font-family: "JackeyFont";
+  src:url("fonts/JackeyFont.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "NewJohnstonMedium";
+  src:url("fonts/new-johnston-medium-4.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pixel";
+  src:url("fonts/FreePixel.ttf") format("truetype");
+  font-display: swap;
+}
+
+コードをコピーする
+body {
+  font-family: "JackeyFont";
+  text-align: center;
+  margin-left: 0;
+  margin-right: 0;
+  overflow: hidden;
+}
+
+button,
+input {
+  font-family: inherit;
+  font-size: 100%;
+  background: transparent;
+  border: 0px solid #000000;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  transition: 500ms;
+}
+
+
+#map {
+    width: 100%;
+    height: 700px;
+    border-top-left-radius: 15vw;
+    border-top-right-radius: 15vw;
+}
+
+.maintitle{
+    font-family:"JackeyFont";
+    font-size:45px;
+   }
+
+   #between{
+    font-family:"NewJohnstonMedium";
+    font-size:45px;
+    letter-spacing:-2px;
+  }
+
+  #bf{
+    letter-spacing:-7px;
+  }
+
+  #mainbar{
+    text-decoration: none; /* Remove underline */
+    color: inherit; 
+          /* Inherit the color from the parent element */
+  }
+  
+  .tagline{
+    font-family:"JackeyFont";
+    margin-top:-25px;
+    font-size:17px;
+    
+  }
+
+  #mainbarbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff; /* ヘッダーの背景色 */
+    z-index: 1000; /* 他の要素よりも手前に表示 */
+  }
+
+  .subpage{
+    font-family:"JackeyFont";
+    text-align:center;
+    color: #000000;
+    background-color: #ffffff; /* ヘッダーの背景色 */
+    z-index: 1000; /* 他の要素よりも手前に表示 */
+  }
+
+  header{
+    background-color: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+
+#yohaku{
+  padding: 70px;
+}
+  
+#bodybox{
+  margin-left: 0;
+  margin-right: 0;
+  overflow: hidden;
+}
+
+.subpage{
+  margin-bottom: -10%;
+}
+
+.menues{
+  margin: 5vw;
+  opacity: 40%;
+  text-decoration: none;
+  color: inherit;
+}
+
+.mapInfo{
+  font-family: "JackeyFont";
+}
+
+#mapText{
+  line-height: 150%;
+  color: #ffffff;
+  font-family: "Pixel";
+
+}
+
+
+#maptextBack{
+  background-color: #000000;
+  height: 150px;
+  border-radius: 1vw;
+  
+}
+
+#innerBorder{
+  /* background-color:aquamarine; */
+  position:relative;
+  width: 90%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+#goMap{
+  /* text-decoration: none; */
+  color: white;
+  font-family: "Pixel";
+}
+
+
